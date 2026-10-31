@@ -2,21 +2,17 @@
 
 *English · [Русский](README.ru.md)*
 
+**Maintained by [semiosh](https://github.com/semiosh)** · [Source](https://github.com/semiosh/Cyclop) · [Issues](https://github.com/semiosh/Cyclop/issues)
+
 The MacBook notch as a working tool. A native SwiftUI/AppKit app: invisible at
 rest, and on hover it unfolds downwards into a panel with a player, a shelf for
-files, clipboard history and your next meetings.
-
-[![build](https://github.com/akalikbergenov/cyclop/actions/workflows/build.yml/badge.svg)](https://github.com/akalikbergenov/cyclop/actions/workflows/build.yml)
-[![Buy Me a Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-%E2%98%95-FFDD00?style=flat-square&labelColor=000000)](https://buymeacoffee.com/akalikbergenov)
+files, clipboard history and translation.
 
 ![The Cyclop panel](docs/panel.png)
 
-**[Download the latest version](https://github.com/akalikbergenov/cyclop/releases/latest)** —
-macOS 15 or newer. Signed and notarised, so it opens on the first try.
+**macOS 15+ · Swift 6 · SwiftUI / AppKit**
 
-```
-0.0 % CPU at rest  ·  ≈40 MB + 14 MB helper  ·  3.7 MB bundle  ·  nothing asked at launch
-```
+Build this version from source using the instructions below.
 
 The track in the screenshot is playing in a browser tab — Cyclop reads it from
 macOS itself, with no permissions and nothing to configure in the browser. How
@@ -51,8 +47,8 @@ area at the top centre of the screen as one.
 ## Building
 
 ```bash
-git clone https://github.com/akalikbergenov/cyclop.git
-cd cyclop
+git clone https://github.com/semiosh/Cyclop.git
+cd Cyclop
 ./Scripts/bundle.sh          # swift build + assemble the .app + ad-hoc sign
 open build/Cyclop.app
 ```
@@ -65,23 +61,16 @@ swift Scripts/make-icon.swift "$PWD/Resources/AppIcon.icns"
 
 ## Installation
 
-Open `Cyclop-<version>.dmg` and drag the app into Applications. It opens on
-the first try: since 0.8.0 the image is signed with a Developer ID and
-notarised by Apple, so there is nothing to allow and nothing to type.
+Build the app from this repository using the instructions above, then move
+`build/Cyclop.app` to Applications.
 
-Updating works the same way: open the new image and replace the app. Coming
-from a version before 0.8.0, macOS may ask for the calendar permission once
-more — the app's signature changed, and that is what the permission was tied
-to. The version is the first line of the menu bar menu.
+Local builds use ad-hoc signing. On another Mac, the first launch may require
+**System Settings → Privacy & Security → Open Anyway**. Developer ID signing
+and notarisation require separate configuration; source builds are not
+notarised automatically.
 
-A build from source (`Scripts/bundle.sh`) is ad-hoc signed and is not
-notarised, so on any Mac but the one that built it the first launch goes
-through **System Settings → Privacy & Security → "Open Anyway"**. Releases do
-not have this step.
-
-Releases come often, and a star does not announce them — it is a bookmark, not a
-subscription. To hear about updates: the **Watch** button at the top right →
-**Custom** → tick **Releases**. Only releases will arrive, no issues or pushes.
+Releases of this version, when published, will appear on the
+[semiosh/Cyclop releases page](https://github.com/semiosh/Cyclop/releases).
 
 ### Building the image yourself
 
@@ -110,8 +99,8 @@ into the app's `Info.plist`, into the image name and into the tag, so they canno
 drift apart. The script also refuses to run on a dirty tree, on unpushed commits,
 or when the tag already exists.
 
-Built images live on the [releases page](https://github.com/akalikbergenov/cyclop/releases) —
-that is the link to hand to people instead of a file.
+Once published, built images will be available on the
+[releases page](https://github.com/semiosh/Cyclop/releases).
 
 ## Permissions
 
@@ -206,28 +195,11 @@ What the app reads, what it keeps and where, where it goes on the network —
 [SECURITY.md](SECURITY.md). The channel for vulnerabilities is there too:
 private, no issue needed.
 
-## Thanks
-
-The app is free — no subscriptions, no ads, no data collection — and will stay
-that way. If it turned out useful and you feel like supporting it:
-
-**[☕ Buy Me a Coffee](https://buymeacoffee.com/akalikbergenov)**
-
-Special thanks to everyone who showed up in the first days and made the app
-better: [@DontTrustMexD](https://github.com/DontTrustMexD),
-[@a58becde](https://github.com/a58becde),
-[@ispy4you](https://github.com/ispy4you),
-[@iFuzYs](https://github.com/iFuzYs),
-[@zhd-dm](https://github.com/zhd-dm),
-[@komekovars](https://github.com/komekovars),
-[@superkai-sdk1](https://github.com/superkai-sdk1),
-[@Ariet2003](https://github.com/Ariet2003).
-
 ## Licence
 
 MIT
 
-## Local Cyclop 2.0 changes
+## Changes in the semiosh version
 
 **Tool search** opens with the magnifier or Command-K while the panel holds
 keyboard focus. Return opens the first result. It searches tool names locally.
@@ -250,3 +222,12 @@ On-device frame-rate and energy measurements were not performed in this environm
 Clipboard, shelf, music and translator are available. The AppKit window
 architecture, privacy controls and previous user files are preserved.
 No dependencies were added.
+
+---
+
+## Baseline
+
+Based on [akalikbergenov/cyclop](https://github.com/akalikbergenov/cyclop) at
+commit [125eb02](https://github.com/akalikbergenov/cyclop/commit/125eb02).
+This version is maintained in [semiosh/Cyclop](https://github.com/semiosh/Cyclop).
+Original copyright notices and the MIT licence are preserved in [LICENSE](LICENSE).
