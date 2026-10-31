@@ -2,22 +2,17 @@
 
 *[English](README.md) · Русский*
 
+**Версия [semiosh](https://github.com/semiosh)** · [Исходники](https://github.com/semiosh/Cyclop) · [Обсуждение ошибок](https://github.com/semiosh/Cyclop/issues)
+
 Челка MacBook как рабочий инструмент. Нативное приложение на SwiftUI/AppKit: в покое
 невидимо, по наведению мыши разворачивается вниз в панель с плеером, полкой для
-файлов, историей буфера обмена и ближайшими встречами.
-
-[![build](https://github.com/akalikbergenov/cyclop/actions/workflows/build.yml/badge.svg)](https://github.com/akalikbergenov/cyclop/actions/workflows/build.yml)
-[![Buy Me a Coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-%E2%98%95-FFDD00?style=flat-square&labelColor=000000)](https://buymeacoffee.com/akalikbergenov)
+файлов, историей буфера обмена и переводчиком.
 
 ![Панель Cyclop](docs/panel.png)
 
-**[Скачать последнюю версию](https://github.com/akalikbergenov/cyclop/releases/latest)** —
-macOS 15 или новее. Первый запуск требует одного разрешения вручную,
-[как именно](#установка).
+**macOS 15+ · Swift 6 · SwiftUI / AppKit**
 
-```
-0.0 % CPU в покое  ·  ≈40 МБ + 14 МБ helper  ·  3.7 МБ бандл  ·  одно разрешение, и то по кнопке
-```
+Эту версию можно собрать из исходников — инструкция ниже.
 
 Трек на снимке играет во вкладке браузера — Cyclop читает его из самой macOS, не
 требуя ни разрешений, ни настроек в браузере. Как это устроено — ниже.
@@ -52,8 +47,8 @@ macOS 15 или новее. Первый запуск требует одног�
 ## Сборка
 
 ```bash
-git clone https://github.com/akalikbergenov/cyclop.git
-cd cyclop
+git clone https://github.com/semiosh/Cyclop.git
+cd Cyclop
 ./Scripts/bundle.sh          # swift build + сборка .app + ad-hoc подпись
 open build/Cyclop.app
 ```
@@ -66,23 +61,16 @@ swift Scripts/make-icon.swift "$PWD/Resources/AppIcon.icns"
 
 ## Установка
 
-Открыть `Cyclop-<версия>.dmg` и перетащить приложение в «Программы».
-Открывается с первого раза: с 0.8.0 образ подписан Developer ID и нотаризован
-Apple, разрешать и вводить ничего не нужно.
+Соберите приложение из этого репозитория по инструкции выше и перенесите
+`build/Cyclop.app` в «Программы».
 
-Обновление — тем же способом: открыть новый образ и заменить приложение.
-При переходе с версии до 0.8.0 macOS может один раз заново спросить доступ
-к календарю: у приложения сменилась подпись, а разрешение было привязано к
-ней. Версия видна в меню-баре первой строкой.
+Локальная сборка подписана ad-hoc. На другом Mac при первом запуске может
+потребоваться **Системные настройки → Конфиденциальность и безопасность →
+«Всё равно открыть»**. Подпись Developer ID и нотаризация требуют отдельной
+настройки; наличие исходного кода не означает, что сборка нотаризована.
 
-Сборка из исходников (`Scripts/bundle.sh`) подписана ad-hoc и не нотаризована,
-поэтому на любом маке, кроме того, где её собрали, первый запуск идёт через
-**Системные настройки → Конфиденциальность и безопасность → «Все равно
-открыть»**. У релизов этого шага нет.
-
-Версии выходят часто, и звезда о них не сообщает — она закладка, а не подписка.
-Чтобы узнавать об обновлениях: кнопка **Watch** вверху справа → **Custom** →
-галочка **Releases**. Приходить будут только релизы, без обсуждений и правок.
+Релизы этой версии, когда они будут опубликованы, появятся на
+[странице релизов semiosh/Cyclop](https://github.com/semiosh/Cyclop/releases).
 
 ### Собрать образ самому
 
@@ -112,8 +100,8 @@ Apple, разрешать и вводить ничего не нужно.
 работать, если в дереве есть несохраненное, если коммиты не запушены или если
 такой тег уже существует.
 
-Готовые образы лежат на [странице релизов](https://github.com/akalikbergenov/cyclop/releases) —
-это и есть ссылка, которую можно давать людям вместо файла.
+После публикации готовые образы будут доступны на
+[странице релизов](https://github.com/semiosh/Cyclop/releases).
 
 ## Разрешения
 
@@ -208,28 +196,11 @@ Sources/CyclopMediaHelper
 [SECURITY.md](SECURITY.md). Там же канал для уязвимостей: приватный, issue
 заводить не нужно.
 
-## Спасибо
-
-Приложение бесплатное, без подписок, рекламы и сбора данных — и таким
-останется. Если оно вам пригодилось и хочется поддержать:
-
-**[☕ Buy Me a Coffee](https://buymeacoffee.com/akalikbergenov)**
-
-Отдельное спасибо тем, кто пришёл в репозиторий в первые же дни и сделал
-приложение лучше: [@DontTrustMexD](https://github.com/DontTrustMexD),
-[@a58becde](https://github.com/a58becde),
-[@ispy4you](https://github.com/ispy4you),
-[@iFuzYs](https://github.com/iFuzYs),
-[@zhd-dm](https://github.com/zhd-dm),
-[@komekovars](https://github.com/komekovars),
-[@superkai-sdk1](https://github.com/superkai-sdk1),
-[@Ariet2003](https://github.com/Ariet2003).
-
 ## Лицензия
 
 MIT
 
-## Локальная доработка Cyclop 2.0
+## Доработки версии semiosh
 
 **Поиск инструментов** открывается лупой или ⌘K при активной клавиатуре
 панели. Return выбирает первый результат. Поиск локальный, только по названиям.
@@ -252,3 +223,12 @@ ProMotion). Фактическую частоту выбирает macOS. При
 Доступны буфер, полка, музыка и переводчик. Сохранены оконная архитектура,
 настройки приватности и пользовательские файлы прежних инструментов.
 Новых зависимостей нет.
+
+---
+
+## Baseline
+
+За основу взят [akalikbergenov/cyclop](https://github.com/akalikbergenov/cyclop),
+коммит [125eb02](https://github.com/akalikbergenov/cyclop/commit/125eb02).
+Эта версия развивается в [semiosh/Cyclop](https://github.com/semiosh/Cyclop).
+Исходные уведомления об авторских правах и лицензия MIT сохранены в [LICENSE](LICENSE).
